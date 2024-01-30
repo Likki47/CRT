@@ -66,23 +66,27 @@ class linkedlist:
             self.tail.next=n
             self.tail=n
     
-    def isthere(self,val):
-        li=[]
+    def search(self,val):
         temp=self.head
-        while temp!=None :
-            li.append(temp.data)
+        i=0
+        v=0
+        for i in range(c):
+            if temp.data==val:
+                print(val,"is present in the list")
+                v=1
             temp=temp.next
-        if val in li :
-            print(val,"is present in the list")
-        else:
+        if v!=1:
             print(val,"not present in the list")
 
 l1=linkedlist()
+c=0
 while True:
     x=int(input())
     if x==-1:
-        value=int(input())
+        val=int(input())
         break
     else:
         l1.create(x)
-l1.isthere(value)
+        c=c+1
+l1.search(val)
+        
