@@ -57,22 +57,16 @@ class linkedlist:
         else:
             self.tail.next=n
             self.tail=n
-    
-    def deletelastsecond(self):
-        li=[]
+    def deletesecondlast(self):
+        temp=self.head
+        while temp.next.next.next!=None:
+            temp=temp.next
+        temp.next=temp.next.next
+    def show(self):
         temp=self.head
         while temp!=None :
-            li.append(temp.data)
+            print(temp.data,end=" ")
             temp=temp.next
-        length=len(li)
-        if length<1 :
-            print("Deletion of second last element is not possible")
-        else:
-            print("Before deleting:")
-            print(*li)
-            li.pop(-2)
-            print("After deleting:")
-            print(*li)
 
 l1=linkedlist()
 while True:
@@ -81,5 +75,10 @@ while True:
         break
     else:
         l1.create(x)
-l1.deletelastsecond()
+print("Before deleting:")        
+l1.show()
+l1.deletesecondlast()
+print()
+print("After deleting:")  
+l1.show()
         
