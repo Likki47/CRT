@@ -52,17 +52,17 @@ class linkedlist:
             self.tail=n
     
     def show(self,index):
-        li=[]
         temp=self.head
-        while temp!=None :
-            li.append(temp.data)
-            temp=temp.next
-        if index in range(len(li)):
-            print(li[-index],"is the nth node element in the list")
+        i=0
+        if index<=c:
+            index=c-index
+            for i in range(index):
+                temp=temp.next
+            print(temp.data,"is the nth node element in the list")      
         else:
             print("There is no nth node in the list")
-
 l1=linkedlist()
+c=0
 while True:
     x=int(input())
     if x==-1:
@@ -70,5 +70,7 @@ while True:
         break
     else:
         l1.create(x)
+        c=c+1
 l1.show(index)
+        
         
