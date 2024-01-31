@@ -1,0 +1,111 @@
+Rearrange linked list 2
+Problem:
+Given a singly linked list L0 -> L1 -> … -> Ln-1 -> Ln, write a program to rearrange the nodes in the list so that the new formed list is : L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2 …
+
+Input Format
+The input should be numbers (until user enters a negative value.
+
+Constraints
+1<=n<=10^7
+
+Output Format
+The output should be numbers in the list in separate line.
+
+Sample Input 0
+
+1
+2
+3
+4
+5
+-1
+Sample Output 0
+1
+5
+2
+4
+3
+
+Sample Input 1
+1
+2
+3
+4
+5
+6
+-1
+Sample Output 1
+1
+6
+2
+5
+3
+4
+
+Sample Input 2
+10
+20
+30
+40
+50
+70
+-1
+Sample Output 2
+10
+70
+20
+50
+30
+40
+
+
+
+
+
+Program:
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+class double():
+    def __init__(self):
+        self.head=self.tail=None
+    def create(self,data):
+        n=node(data)
+        if self.head==None:
+            self.head=self.tail= n
+        else:
+            self.tail.right=n
+            n.left=self.tail
+            self.tail=n
+    def show(self,c):
+        if self.head==None:
+            print("List is empty")
+        i=0
+        temp1=self.head
+        temp2=self.tail
+        if c%2==0:
+            for i in range (c//2):
+                print(temp1.data)
+                print(temp2.data)
+                temp1 = temp1.right
+                temp2 = temp2.left
+        else:
+            for i in range (c//2):
+                print(temp1.data)
+                print(temp2.data)
+                temp1 = temp1.right
+                temp2 = temp2.left
+            print(temp1.data)
+
+l1=double()
+c=0
+while True:
+    x=int(input())
+    if x==-1:
+        break
+    else:
+        l1.create(x)
+        c=c+1
+l1.show(c)
