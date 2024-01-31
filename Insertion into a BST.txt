@@ -1,0 +1,80 @@
+INSERTION INTO BST
+PROBLEM:
+To insert the given nodes into a BST and return the nodes
+input :
+2
+1
+23
+2
+1
+63
+2
+output:
+1.Insert
+2.show
+3.exit
+2
+40 
+1.Insert
+2.show
+3.exit
+1
+element:23
+
+1.Insert
+2.show
+3.exit
+2
+23 40 
+1.Insert
+2.show
+3.exit
+1
+element:63
+
+1.Insert
+2.show
+3.exit
+2
+23 40 63
+PROGRAM:
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.right=None
+        self.left=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=node(x)
+            else:
+                self.right.insert(x)
+    def show(self):
+        if self.left:
+            self.left.show()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.show()
+root=node(40)
+while True:
+    print()
+    print("1.Insert\n2.show\n3.exit")
+    ch=int(input())
+    if ch==1:
+        x=int(input("element:"))
+        root.insert(x)
+    elif ch==2:
+        root.show()
+    elif ch==3:
+        break
+    else:
+        print("invalid choice")
+    
