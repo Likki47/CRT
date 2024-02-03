@@ -1,0 +1,91 @@
+#TO CREATE AND PRINT UNDIRTECTED GRAPH ADJACENCY LIST REPRESENTATION
+
+Progam:
+def addNode(v):
+    if v in graph:
+        print("already available")
+    else:
+        graph[v]=[]
+def show():
+    for x in graph:
+        print(x,":",graph[x])
+def addedge(node1,node2):
+    if node1 not in graph:
+        print("node1 not available")
+    elif node2 not in graph:
+        print("node2 not available")
+    else:
+        graph[node1].append(node2)
+        graph[node2].append(node1)
+graph={}
+while True:
+    print()
+    print("1.AddNode\n2.AddEdge\n3.show\n4.Exit")
+    print("Enter Choice")
+    ch=int(input())
+    if ch==1:
+        x=input()
+        addNode(x)
+    elif ch==2:
+        n1=input()
+        n2=input()
+        addedge(n1,n2)
+    elif ch==3:
+        show()
+    elif ch==4:
+        break
+    else:
+        print("invalid")
+
+Sample output:
+1.AddNode
+2.AddEdge
+3.show
+4.Exit
+Enter Choice
+1
+a
+
+1.AddNode
+2.AddEdge
+3.show
+4.Exit
+Enter Choice
+1
+b
+
+1.AddNode
+2.AddEdge
+3.show
+4.Exit
+Enter Choice
+1
+c
+
+1.AddNode
+2.AddEdge
+3.show
+4.Exit
+Enter Choice
+2
+a
+b
+
+1.AddNode
+2.AddEdge
+3.show
+4.Exit
+Enter Choice
+2
+b
+c
+
+1.AddNode
+2.AddEdge
+3.show
+4.Exit
+Enter Choice
+3
+a : ['b']
+b : ['a', 'c']
+c : ['b']
